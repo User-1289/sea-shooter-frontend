@@ -14,11 +14,17 @@ const Board: React.FC<BoardProps> = ({ grid, onCellClick, showShips = false }) =
     <div className="grid grid-cols-10 gap-1">
       {grid.map((row, y) =>
         row.map((cell, x) => {
-          let className = 'w-8 h-8 border';
-          if (cell === 'ship' && showShips) className += ' bg-blue-300';
-          else if (cell === 'hit') className += ' bg-red-500';
-          else if (cell === 'miss') className += ' bg-gray-300';
-          else className += ' bg-blue-200';
+          // Cell base styling with dark mode
+          let className = 'w-8 h-8 border ';
+          if (cell === 'ship' && showShips) {
+            className += 'bg-blue-300 dark:bg-blue-700';
+          } else if (cell === 'hit') {
+            className += 'bg-red-500 dark:bg-red-700';
+          } else if (cell === 'miss') {
+            className += 'bg-gray-300 dark:bg-gray-600';
+          } else {
+            className += 'bg-blue-200 dark:bg-blue-900';
+          }
           return (
             <div
               key={`${x}-${y}`}
