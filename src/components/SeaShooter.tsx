@@ -44,7 +44,7 @@ const SeaShooter: React.FC = () => {
   const [winnerId, setWinnerId] = useState<string | null>(null);
 
   useEffect(() => {
-    const s = io(process.env.SERVER_URL || 'http://localhost:3000');
+    const s = io("https://sea-shooter-server.onrender.com");
     setSocket(s);
 
     s.on('connect', () => {
